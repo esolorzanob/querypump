@@ -1,5 +1,46 @@
-angular.module('QuestionController', []).controller('QuestionController', ['$scope', '$location', '$routeParams', 'Question', 'User', '$localStorage',
-  function ($scope, $location, $routeParams, Question, User, $localStorage) {
+angular.module('QuestionController', []).controller('QuestionController', ['$scope', '$location', '$routeParams', 'Question', 'User', '$localStorage', '$uibModal', '$log',
+  function ($scope, $location, $routeParams, Question, User, $localStorage, $uibModal, $log) {
+    
+  $scope.items = [];
+   
+  $scope.animationsEnabled = true;
+
+  $scope.open = function (size,question) {
+    var id = question.id;
+    $scope.items.push(id);
+    var category = question.category;
+    $scope.items.push(category);
+    var posting_user = question.posting_user;
+    $scope.items.push(posting_user);
+    var body = question.body;
+    $scope.items.push(body);
+    var options = question.answers;
+    options = options.split(",");
+    $scope.items.push(options);
+       
+    var modalInstance = $uibModal.open({
+      animation: $scope.animationsEnabled,
+      templateUrl: 'myModalContent.html',
+      controller: 'ModalInstanceController',
+      size: size,
+      resolve: {
+        items: function () {
+          return $scope.items;
+        }
+      }
+    });
+
+    modalInstance.result.then(function (selectedItem) {
+      $scope.selected = selectedItem;
+    }, function () {
+      $log.info('Modal dismissed at: ' + new Date());
+    });
+  };
+
+  $scope.toggleAnimation = function () {
+    $scope.animationsEnabled = !$scope.animationsEnabled;
+  };
+
 
     $scope.getAuthenticatedUser = function (user) {
       if (user) {
