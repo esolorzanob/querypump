@@ -1,0 +1,17 @@
+CREATE TABLE `querypumptest`.`users` (
+  `id` INT NOT NULL AUTO_INCREMENT COMMENT '',
+  `username` VARCHAR(100) NOT NULL COMMENT '',
+  `email` VARCHAR(100) NULL COMMENT '',
+  `password` VARCHAR(60) NOT NULL COMMENT '',
+  `gender` VARCHAR(45) NULL COMMENT '',
+  `dob` DATETIME NULL COMMENT '',
+  `education` VARCHAR(200) NULL COMMENT '',
+  `country` VARCHAR(45) NULL COMMENT '',
+  `work` VARCHAR(200) NULL COMMENT '',
+  `created_at` TIMESTAMP NULL COMMENT '',
+  `updated_at` TIMESTAMP NULL COMMENT '',
+  `userscol` VARCHAR(45) NULL COMMENT '',
+  `remember_token` VARCHAR(100) NULL COMMENT '',
+  PRIMARY KEY (`id`)  COMMENT '',
+  UNIQUE INDEX `username_UNIQUE` (`username` ASC)  COMMENT '',
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC)  COMMENT '');

@@ -12,10 +12,13 @@ class CreateTodosTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('todos', function(Blueprint $table)
+		Schema::create('answers', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('body');
+			$table->int('response_user');
+			$table->string('answer');
+			$table->string('comment');
+			$table->int('question_id');
 			$table->timestamps();
 		});
 	}

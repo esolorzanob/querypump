@@ -48,7 +48,36 @@
 								<input type="password" class="form-control" name="password_confirmation">
 							</div>
 						</div>
-
+						<div class="form-group">
+							<label class="col-md-4 control-label">Gender</label>
+							<div class="col-md-6">
+								<input type="text" class="form-control" name="gender">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-4 control-label">Date of Birth</label>
+							<div class="col-md-6">
+								<input type="date" class="form-control" name="dob">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-4 control-label">Education</label>
+							<div class="col-md-6">
+								<input type="text" class="form-control" name="education">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-4 control-label">Country</label>
+							<div class="col-md-6">
+								<input type="text" class="form-control" name="country">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-4 control-label">Work</label>
+							<div class="col-md-6">
+								<input type="text" class="form-control" name="work">
+							</div>
+						</div>
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
 								<button type="submit" class="btn btn-primary">

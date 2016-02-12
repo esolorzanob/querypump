@@ -1,0 +1,9 @@
+CREATE TABLE `querypumptest`.`answers` (
+  `id` INT NOT NULL AUTO_INCREMENT COMMENT '',
+  `response_user` INT NULL COMMENT '',
+  `answer` VARCHAR(100) NULL COMMENT '',
+  `comment` VARCHAR(500) NULL COMMENT '',
+  `question_id` INT NULL COMMENT '',
+  `created_at` TIMESTAMP NULL COMMENT '',
+  `updated_at` TIMESTAMP NULL COMMENT '',
+  PRIMARY KEY (`id`)  COMMENT '');

@@ -24,9 +24,10 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li ng-class="{active:isActive('/todos')}"><a href="/todos">List Todos</a></li>
-                <li ng-class="{active:isActive('/todos/create')}"><a href="/todos/create">Create Todo</a></li>
+                <li ng-class="{active:isActive('/todos/create')}"><a href="/questions/create">Create Todo</a></li>
                 <li ng-if="authenticatedUser == null" ng-class="{active:isActive('/auth/signup')}"><a href="/auth/signup">Sign Up</a></li>
                 <li ng-if="authenticatedUser == null" ng-class="{active:isActive('/auth/login')}"><a href="/auth/login">Log in</a></li>
+                <li ng-if="authenticatedUser != null && authenticatedUser.role == '0'" ><a ng-href="/auth/createUser">Create user</a></li>
                 <li ng-if="authenticatedUser != null" ng-class="{active:isActive('/users/view/' + authenticatedUser.id)}"><a ng-href="/users/view/{{authenticatedUser.id}}">{{authenticatedUser.username}}</a></li>
                 <li ng-if="authenticatedUser != null" ng-click="logout()"><a ng-href="#">Log out</a></li>
             </ul>

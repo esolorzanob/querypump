@@ -60,4 +60,9 @@
             <button type="submit" class="btn btn-primary">Sign Up</button>
         </div>
     </div>
+    <div class="form-group">
+        <div class="col-md-4">
+            <p ng-show="showMessage">The user was succesfully created</p>
+        </div>
+    </div>
 </form>
