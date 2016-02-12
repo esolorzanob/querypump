@@ -34,6 +34,7 @@ Route::get('/api/user/getByToken', 'UserController@getByToken');
 // Getting RESTful
 
 Route::resource('/api/question', 'QuestionController');
+Route::resource('/api/answer', 'AnswerController');
 Route::resource('/api/user', 'UserController');
 
 // Catch all undefined routes. Always gotta stay at the bottom since order of routes matters.

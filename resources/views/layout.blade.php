@@ -19,12 +19,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Todos</a>
+            <a class="navbar-brand" href="/">Home</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li ng-class="{active:isActive('/todos')}"><a href="/todos">List Todos</a></li>
-                <li ng-class="{active:isActive('/todos/create')}"><a href="/questions/create">Create Todo</a></li>
+                <li ng-class="{active:isActive('/todos')}"><a href="/questions/view">List Questions</a></li>
+                <li ng-class="{active:isActive('/todos')}"><a href="/answers/view">List Answers</a></li>
+                <li ng-class="{active:isActive('/todos/create')}"><a href="/questions/create">Create Question</a></li>
                 <li ng-if="authenticatedUser == null" ng-class="{active:isActive('/auth/signup')}"><a href="/auth/signup">Sign Up</a></li>
                 <li ng-if="authenticatedUser == null" ng-class="{active:isActive('/auth/login')}"><a href="/auth/login">Log in</a></li>
                 <li ng-if="authenticatedUser != null && authenticatedUser.role == '0'" ><a ng-href="/auth/createUser">Create user</a></li>

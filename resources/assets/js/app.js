@@ -8,8 +8,10 @@ angular.module('todoApp', [
   'TodoController',
   'UserController',
   'QuestionController',
+  'AnswerController',
   'UserService',
   'TodoService',
-  'QuestionService'
+  'QuestionService',
+  'AnswerService'
 ]);
 
