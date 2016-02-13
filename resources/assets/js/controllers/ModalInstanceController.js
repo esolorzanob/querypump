@@ -11,7 +11,8 @@ angular.module('ModalInstanceController',[]).controller('ModalInstanceController
   };
 
   $scope.ok = function () {
-    $uibModalInstance.close($scope.selected.item);
+    items.push($scope.selected.item);
+    $uibModalInstance.close(items);
   };
 
   $scope.cancel = function () {

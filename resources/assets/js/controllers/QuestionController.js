@@ -1,5 +1,6 @@
-angular.module('QuestionController', []).controller('QuestionController', ['$scope', '$location', '$routeParams', 'Question', 'User', '$localStorage', '$uibModal', '$log',
-  function ($scope, $location, $routeParams, Question, User, $localStorage, $uibModal, $log) {
+angular.module('QuestionController', []).controller('QuestionController', ['$scope', '$location', '$routeParams', 'Question', 'User', '$localStorage', '$uibModal', '$log', 'Answer',
+  function ($scope, $location, $routeParams, Question, User, $localStorage, $uibModal, $log, Answer) {
+    
     
   $scope.items = [];
    
@@ -30,8 +31,21 @@ angular.module('QuestionController', []).controller('QuestionController', ['$sco
       }
     });
 
-    modalInstance.result.then(function (selectedItem) {
-      $scope.selected = selectedItem;
+    modalInstance.result.then(function (items) {
+      $scope.items = items;
+      $scope.getAuthenticatedUser();
+      console.log($scope.authenticatedUser);
+      var answer = new Answer({
+        response_user: $scope.authenticatedUser.id,
+        answer: $scope.items[5],
+        comment: "test",
+        question_id: $scope.items[0]
+      });
+      answer.$save(function (res) {
+        console.log("exito");
+      }, function (err) {
+        console.log(err);
+      });
     }, function () {
       $log.info('Modal dismissed at: ' + new Date());
     });
@@ -50,6 +64,11 @@ angular.module('QuestionController', []).controller('QuestionController', ['$sco
       if (typeof $localStorage.token === 'undefined') {
         return null;
       }
+       new User().$getByToken(function (user) {
+        $scope.authenticatedUser = user;
+      }, function (err) {
+        console.log(err);
+      });
     };
 
     $scope.create = function () {

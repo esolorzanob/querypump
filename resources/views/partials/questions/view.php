@@ -1,9 +1,18 @@
 <div ng-controller="QuestionController">
     <script type="text/ng-template" id="myModalContent.html">
         <div class="modal-header">
+        
+          <div class="title-container">
             <h3 class="modal-title">Question #{{id}}</h3>
             <h4 class="modal-subtitle">Posted by {{posting_user}}</h2>
+          </div>
+          <div class="image-container">
+            <img src="/imgs/Have-Fun.png" class="modal-img-category"></img>
+            <p>Funny</p>
+         </div>
+        
         </div>
+        
         <div class="modal-body">
             <p>{{body}}</p>
             <ul>

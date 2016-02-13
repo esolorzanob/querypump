@@ -26,11 +26,7 @@ angular.module('MainController', []).controller('MainController', ['$scope', '$l
         return null;
       }
 
-      new User().$getByToken(function (user) {
-        $scope.authenticatedUser = user;
-      }, function (err) {
-        console.log(err);
-      });
+     
     };
 
     $scope.logout = function () {
