@@ -12,5 +12,8 @@ class Answer extends Model {
 		'comment',
 		'question_id'			
     ];
-
+	public function user()
+    {
+        return $this->belongsTo('Todo\User','response_user','id');
+    }
 }

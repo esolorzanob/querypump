@@ -7,8 +7,8 @@
             <h4 class="modal-subtitle">Posted by {{posting_user}}</h2>
           </div>
           <div class="image-container">
-            <img src="/imgs/Have-Fun.png" class="modal-img-category"></img>
-            <p>Funny</p>
+            <img ng-src="{{imgName}}" class="modal-img-category"></img>
+            <p>{{category}}</p>
          </div>
         
         </div>
@@ -21,6 +21,10 @@
                 </li>
             </ul>
             Selected: <b>{{ selected.item }}</b>
+            <div ng-show="comments == 1">
+            <p>Write a comment</p>
+            <textArea ng-model="comment"></textArea>
+            </div>
         </div>
         <div class="modal-footer">
             <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
@@ -44,8 +48,9 @@
           <td>{{question.created_at}}</td>
           <td>{{question.posting_user}}</td>
           <td><a href="javascript:void(0)">#</a></td>
-          <td><a ng-click="open('lg',question)" href="javascript:void(0)">#</a></td>
+          <td><a ng-click="open('lg',question)" href="javascript:void(0)" ng-show="!question.responded">#</a></td>
     </table>
+    <a ng-click="test()">#</a>
 </div>
 
 

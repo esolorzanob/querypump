@@ -95,7 +95,10 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return User::find($id);
+        $user = User::find($id);
+       $questions = $user->answer;
+       
+        return $user;
     }
 
     /**

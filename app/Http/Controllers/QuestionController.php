@@ -22,7 +22,11 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        return Question::all();
+        $questions = Question::all();
+        foreach($questions as $question){
+            $question->posting_user = $question->user->username; 
+        } 
+        return $questions;
     }
 
     /**
@@ -58,7 +62,9 @@ class QuestionController extends Controller
      */
     public function show($id)
     {
-        return Question::find($id);
+        $question = Question::find($id);
+        $question->posting_user = $question->user->username;
+        return $question;
     }
 
     /**

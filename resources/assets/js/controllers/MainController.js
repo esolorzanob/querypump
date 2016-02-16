@@ -25,7 +25,11 @@ angular.module('MainController', []).controller('MainController', ['$scope', '$l
       if (typeof $localStorage.token === 'undefined') {
         return null;
       }
-
+      new User().$getByToken(function (user) {
+        $scope.authenticatedUser = user;
+      }, function (err) {
+        console.log(err);
+      });
      
     };
 

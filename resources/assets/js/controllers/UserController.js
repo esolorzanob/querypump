@@ -9,18 +9,18 @@ angular.module('UserController', []).controller('UserController', ['$scope', 'Us
       user.$login(function (user) {
         $localStorage.token = user.token;
         $scope.getAuthenticatedUser(user);
-         $location.path('users/view/' + user.id);
+        $location.path('users/view/' + user.id);
       }, function (err) {
         console.log(err);
       });
     };
-    
-   var isAdmin = $scope.authenticatedUser;
+
+
     $scope.create = function () {
       if (this.password != this.passwordConfirmation) {
         return alert('The passwords do not match.');
       }
-     var user = new User({
+      var user = new User({
         username: this.username,
         password: this.password,
         email: this.email,
@@ -29,18 +29,14 @@ angular.module('UserController', []).controller('UserController', ['$scope', 'Us
         education: this.education,
         country: this.country,
         work: this.work,
-              
+        role: "1"
       });
       user.$save(function (user) {
         $localStorage.token = user.token;
-       
-        if(isAdmin.role = "0"){
-           $scope.showMessage = true;
-        }else{
-           $scope.getAuthenticatedUser(user);
-           $location.path('users/view/' + user.id);
-        }
-       
+        $scope.getAuthenticatedUser(user);
+        $location.path('users/view/' + user.id);
+
+
       }, function (err) {
         console.log(err);
       });
@@ -49,7 +45,7 @@ angular.module('UserController', []).controller('UserController', ['$scope', 'Us
     $scope.findOne = function () {
       var splitPath = $location.path().split('/');
       var userId = splitPath[splitPath.length - 1];
-      $scope.user = User.get({userId: userId});
+      $scope.user = User.get({ userId: userId });
     };
   }
 ]);

@@ -13,5 +13,10 @@ class Question extends Model {
 		'enable_comments',
 		'category'		
     ];
+	
+	public function user()
+    {
+        return $this->belongsTo('Todo\User','posting_user','id');
+    }
 
 }

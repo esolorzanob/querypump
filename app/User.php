@@ -48,5 +48,13 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         }
         return $user;
     }
-
+    
+    public function question()
+    {
+        return $this->hasMany('Todo\Question','posting_user');
+    }
+ public function answer()
+    {
+        return $this->hasMany('Todo\Answer','response_user');
+    }
 }
