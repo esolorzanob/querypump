@@ -16,4 +16,8 @@ class Answer extends Model {
     {
         return $this->belongsTo('Todo\User','response_user','id');
     }
+	public function question()
+    {
+        return $this->belongsTo('Todo\Question','question_id','id');
+    }
 }

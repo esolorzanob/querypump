@@ -119,7 +119,7 @@ angular.module('QuestionController', []).controller('QuestionController', ['$sco
         
       });
       $scope.questions = questions;
-      console.log($scope.questions);
+      
     };
 
 

@@ -18,5 +18,8 @@ class Question extends Model {
     {
         return $this->belongsTo('Todo\User','posting_user','id');
     }
-
+	 public function answer()
+    {
+        return $this->hasMany('Todo\Answer','question_id');
+    }
 }

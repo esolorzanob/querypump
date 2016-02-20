@@ -47,8 +47,8 @@
           <td>{{question.body}}</td> 
           <td>{{question.created_at}}</td>
           <td>{{question.posting_user}}</td>
-          <td><a href="javascript:void(0)">#</a></td>
-          <td><a ng-click="open('lg',question)" href="javascript:void(0)" ng-show="!question.responded">#</a></td>
+          <td><a href="answers/view/question_id-{{question.id}}">#</a></td>
+          <td><a ng-click="open('sm',question)" href="javascript:void(0)" ng-show="!question.responded">#</a></td>
     </table>
     <a ng-click="test()">#</a>
 </div>

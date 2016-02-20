@@ -24,6 +24,17 @@ class AnswerController extends Controller
     {
         return Answer::all();
     }
+    
+     public function findGroup($column, $value)
+    {   
+        $group = Answer::where($column, $value)->get();
+        foreach($group as $answer){
+            $answer->question_id = $answer->question->id;
+            $answer->response_user = $answer->user->username;
+        }
+        return $group;
+    }
+    
 
     /**
      * Show the form for creating a new resource.

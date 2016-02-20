@@ -5,6 +5,7 @@ angular.module('todoApp', [
   'ngAnimate',
   'appRoutes',
   'enterStroke',
+  'ng-fusioncharts',
   'ui.bootstrap',
   'MainController',
   'TodoController',

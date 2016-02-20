@@ -26,11 +26,13 @@ Route::get('/partials/{category}/{action?}', function ($category, $action = 'ind
 Route::get('/partials/{category}/{action}/{id}', function ($category, $action = 'index', $id) {
     return view(join('.', ['partials', $category, $action]));
 });
-
+Route::get('/partials/{category}/{action}/{column},{value}', function ($category, $action = 'index', $column,$value) {
+    return view(join('.', ['partials', $category, $action]));
+});
 // Additional RESTful routes.
 Route::post('/api/user/login', 'UserController@login');
 Route::get('/api/user/getByToken', 'UserController@getByToken');
-
+Route::get('/api/answer/findGroup/{column},{value}', 'AnswerController@findGroup');
 // Getting RESTful
 
 Route::resource('/api/question', 'QuestionController');
